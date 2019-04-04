@@ -30,7 +30,17 @@ public class InterfazUsuario extends javax.swing.JFrame {
         //colocar en la posicion del medio de la pantalla
         this.setLocationRelativeTo(null);
     }
-    
+    void insertarDatos() {
+        try{
+            PreparedStatement pps = conexion.prepareStatement("INSERT INTO postres(nombre) VALUES(?)");
+            pps.setString(1,txtTexto.getText());
+            pps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Datos Guardados Correctamente");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,15 +106,8 @@ public class InterfazUsuario extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // colocar un nuevo postre en la base de datos
-        try{
-            PreparedStatement pps = conexion.prepareStatement("INSERT INTO postres(nombre) VALUES(?)");
-            pps.setString(1,txtTexto.getText());
-            pps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Datos Guardados Correctamente");
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
-        }
+        insertarDatos();
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
@@ -147,4 +150,6 @@ public class InterfazUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField txtTexto;
     // End of variables declaration//GEN-END:variables
+
+    
 }
