@@ -17,6 +17,7 @@ public class gelatina extends javax.swing.JFrame {
      */
     public gelatina() {
         initComponents();
+	//jorge
     }
 
     /**
