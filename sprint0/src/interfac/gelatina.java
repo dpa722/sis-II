@@ -6,6 +6,9 @@
 
 package interfac;
 
+import com.mysql.jdbc.Connection;
+import conector.conector;
+
 /**
  *
  * @author daniel
@@ -15,9 +18,12 @@ public class gelatina extends javax.swing.JFrame {
     /**
      * Creates new form gelatina
      */
+    private Connection conexion;
     public gelatina() {
         initComponents();
 	//jorge
+        conector cn = new conector();
+        conexion = cn.conectar();
     }
 
     /**
