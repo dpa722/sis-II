@@ -20,6 +20,7 @@ public class conector {
     private final static String url = "jdbc:mysql://Localhost:3306/postres";
     private final static String user = "root";
     private final static String password = "";
+    
     public Connection conectar(){
         Connection conexion = null;
         try{
