@@ -13,14 +13,18 @@ import java.sql.SQLException;
 
 /**
  *
- * @author daniel
+ * @author Daniel Puña
+ * @author Jorge Delgadillo 
+ * @author Miguel Corma
+ * @author Hilari Adrian
+ * @author Alex Gonzales
  */
 public class conector {
     
     private final static String url = "jdbc:mysql://Localhost:3306/postres";
     private final static String user = "root";
     private final static String password = "";
-    
+    //metodo para conectar con la base de datos
     public Connection conectar(){
         Connection conexion = null;
         try{

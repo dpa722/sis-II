@@ -2,9 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/daniel/Documents/GitHub/sis-II/sprint0/src/interfac/InterfazUsuario.java</file>
             <file>file:/C:/Users/daniel/Documents/GitHub/sis-II/sprint0/src/conector/conector.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> b5265b8b981b57e221fceb08f00b8713fcc503a9
     </open-files>
 </project-private>
