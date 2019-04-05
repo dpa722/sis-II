@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
  * @author Miguel Corma
  * @author Daniel Puña
  * @author Jorge Delgadillo
+ * @author Hilari adrian
+ * @author Alex Gonzales
  */
 public class InterfazUsuario extends javax.swing.JFrame {
     

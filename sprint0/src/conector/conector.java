@@ -15,7 +15,9 @@ import java.sql.SQLException;
  *
  * @author Daniel Puña
  * @author Jorge Delgadillo 
- * @autor Miguel Corma
+ * @author Miguel Corma
+ * @author Hilari Adrian
+ * @author Alex Gonzales
  */
 public class conector {
     
