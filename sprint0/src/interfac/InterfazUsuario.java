@@ -7,8 +7,7 @@ package interfac;
 //libreria para coneccion
 
 import conector.conector;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
@@ -23,23 +22,20 @@ public class InterfazUsuario extends javax.swing.JFrame {
     /**
      * Creates new form InterfazUsuario
      */
-    private Connection conexion;
+    
     public InterfazUsuario() {
         initComponents();
-        //coneccion
-        conector cn = new conector();
-        conexion = cn.conectar();
         //colocar en la posicion del medio de la pantalla
         this.setLocationRelativeTo(null);
     }
     void insertarDatos() {
         try{
-            PreparedStatement pps = conexion.prepareStatement("INSERT INTO postres(nombre) VALUES(?)");
-            pps.setString(1,txtTexto.getText());
-            pps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Datos Guardados Correctamente");
+            String nuevoPostre = txtTexto.getText();
+            //conexion a la base de datos
+            conector cn = new conector();
+            cn.verificarPostre(nuevoPostre);
         }
-        catch(Exception e){
+        catch(SQLException e){
             JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
     }

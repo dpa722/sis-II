@@ -9,7 +9,10 @@ package conector;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,20 +24,39 @@ import java.sql.SQLException;
  */
 public class conector {
     
+    Statement st;
+    ResultSet datosResultado;
     private final static String url = "jdbc:mysql://Localhost:3306/postres";
     private final static String user = "root";
     private final static String password = "";
     //metodo para conectar con la base de datos
-    public Connection conectar(){
-        Connection conexion = null;
+    Connection conexion = null;
+    public conector(){
         try{
-           
+            Class.forName("com.mysql.jdbc.Driver");
             conexion = (Connection) DriverManager.getConnection(url,user,password);
+            if (conexion!=null){
             System.out.println("conexion exitosa");
-        }catch(SQLException e){
-            System.out.println("Error en la conexion");
-            e.printStackTrace();
+            st = conexion.createStatement();
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            System.out.println("Error en la conexion"+e);
         }
-        return conexion;
+    }
+    public void verificarPostre(String nombPostre) throws SQLException{
+        datosResultado = st.executeQuery("SELECT nombre FROM postres");
+        boolean registrado = false;
+        while (datosResultado.next()) {            
+            if(nombPostre.equals(datosResultado.getObject("nombre"))){
+                registrado = true;
+                JOptionPane.showMessageDialog(null, "El postre ya fue registrado.");
+                break;
+            }
+        }
+        if(registrado == false){
+            st.execute("INSERT INTO postre (nombre) VALUES ('"+nombPostre+"')");
+            JOptionPane.showMessageDialog(null, "Postre registrado.");
+        }
+        conexion.close();
     }
 }
